@@ -18,10 +18,7 @@
     </main>
     <footer></footer>
     <script>
-      function init() {
-        const displayButton = document.getElementById("displayButton");
-        displayButton.onclick = displayDate;
-      }
+      
 
       function displayDate() {
         let messageParagraph = document.getElementById("messageParagraph");
@@ -29,10 +26,10 @@
         messageParagraph.innerText = dateInput.value;
       }
 
-
-
-
-      window.onload = init;
+      window.onload = function init() {
+        const displayButton = document.getElementById("displayButton");
+        displayButton.onclick = displayDate;
+      };
     </script>
   </body>
 </html>

@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Icecream</title>
+  </head>
+  <body>
+    <main>
+      <article>
+        <h2>Number of Scoops</h2>
+        <form>
+          <label for="numberOfScoopsInput">Number of Scoops</label>
+          <input type="number" id="numberOfScoopsInput" />
+
+          <fieldset>
+            <input type="radio" name="cone" id="coneRadioInput" />
+            <label for="coneRadioInput">Cone</label>
+            <input type="radio" name="cup" id="cupRadioInput" />
+            <label for="cupRadioInput">Cup</label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Toppings</legend>
+            <label for="sprinklesCheckbox">
+              <input type="checkbox" id="sprinklesCheckbox" />
+              Sprinkles
+            </label>
+            <label for="whippedCreamCheckbox">
+              <input type="checkbox" id="whippedCreamCheckbox" />
+              Whipped Cream
+            </label>
+            <label for="hotFudgeCheckbox">
+              <input type="checkbox" id="hotFudgeCheckbox" />
+              Hot Fudge
+            </label>
+            <label for="cherryCheckbox">
+              <input type="checkbox" id="cherryCheckbox" />
+              Cherry
+            </label>
+          </fieldset>
+          <button type="button" id="submitButton">Submit Order</button>
+          <table class="totals">
+            <tbody>
+              <tr>
+                <td>Base Price:</td>
+                <td id="basePriceTotal">xx.xx</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td>Tax:</td>
+                <td id="taxPriceTotal">xx.xx</td>
+              </tr>
+            </tbody>
+            <tbody>
+              <tr>
+                <td>Total Due:</td>
+                <td id="totalDue">xx.xx</td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </article>
+    </main>
+    <script>
+      "use strict";
+    //  function init() {
+        let submitButton = document.getElementById("submitButton");
+        submitButton.onclick = submitOrder;
+        let submitOrder = 
+    
+     let basePriceTotal = basePrice + toppingCost;
+     let tax = basePriceTotal* 0.08;
+    let totalDue = basePriceTotal + toppingCost + tax;
+
+     let basePrice = 2.25;
+
+     let toppingCost = 0;
+
+     if (document.getElementById("cupRadioInput".checked)) {
+
+    if (document.getElementById("sprinklesCheckbox").checked) {
+        toppingCost += 0.50;
+     }
+     if (document.getElementById("hotFudgeCheckbox").checked) {
+        toppingCost += 1.25;
+     }
+     if (document.getElementById("whippedCreamCheckbox").checked) {
+        toppingCost += 0.25;
+     }
+     if (document.getElementById("cherryCheckbox").checked) {
+        toppingCost += 0.25;
+     }
+     }
+     document.getElementById('basePriceTotal').innerText = `$${basePriceTotal.toFixed(2)}`;
+    document.getElementById('tax').innerText = `$${tax.toFixed(2)}`;
+    document.getElementById('total').innerText = `$${totalDue.toFixed(2)}`;
+
+      
+      window.onload = init;
+    </script>
+  </body>
+</html>
